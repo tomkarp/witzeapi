@@ -7,25 +7,36 @@ const port = 3000;
 app.use(express.json());
 
 const jokesFilePath = path.join(__dirname, 'data', 'jokes.json');
+const jokes = loadJokes(jokesFilePath);
+const questionsFilePath = path.join(__dirname, 'data', 'questions.json');
+const questions = loadJokes(questionsFilePath);
 
 // Funktion zum Laden der Witze aus der Datei
-function loadJokes() {
-    const data = fs.readFileSync(jokesFilePath, 'utf8');
+function loadJokes(path) {
+    const data = fs.readFileSync(path, 'utf8');
     return JSON.parse(data);
 }
 
 // Endpunkt zum Abrufen aller Witze
 app.get('/jokes', (req, res) => {
-    const jokes = loadJokes();
     res.json(jokes);
+});
+
+// Endpunkt zum Abrufen aller Scherzfragen
+app.get('/questions', (req, res) => {
+    res.json(questions);
 });
 
 // Endpunkt zum Abrufen eines einzelnen Witzes nach ID
 app.get('/jokes/:id', (req, res) => {
-    const jokes = loadJokes();
-    const joke = jokes.find(j => j.id === parseInt(req.params.id));
-    if (!joke) return res.status(404).send('Witz nicht gefunden');
-    res.json(joke);
+    if (!jokes[req.params.id]) return res.status(404).send('Witz nicht gefunden');
+    res.json(jokes[req.params.id]);
+});
+
+// Endpunkt zum Abrufen einer einzelnen Scherzfrage nach ID
+app.get('/questions/:id', (req, res) => {
+    if (!questions[req.params.id]) return res.status(404).send('Witz nicht gefunden');
+    res.json(questions[req.params.id]);
 });
 
 

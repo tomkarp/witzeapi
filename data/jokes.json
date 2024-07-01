@@ -1,5 +1,8 @@
 [
-    { "id": 1, "joke": "Warum können Geister so schlecht lügen? Weil man durch sie hindurchsieht!" },
-    { "id": 2, "joke": "Warum können Seeräuber keinen Kreis berechnen? Weil sie Pi raten!" },
-    { "id": 3, "joke": "Was ist orange und läuft durch den Wald? Eine Wanderine!" }
+    { "joke": "Ich habe einen Joghurt fallen gelassen. Er war nicht mehr haltbar." },
+    { "joke": "Treffen sich 2 Schafe, sagt das eine: Mäh! Sagt die andere: Mäh doch selber!" },
+    { "joke": "Ein Programmierer wird von seiner Frau um Folgendes gebeten: „Geh bitte zum Laden und kaufe einen Laib Brot. Falls die Eier haben, bring ein Dutzend mit.“ Der Programmierer kommt zurück mit 12 Laiben Brot." },
+    { "joke": "Chuck Norris sucht nicht die Nadel im Heuhaufen – er sucht den Heuhalm im Nadelhaufen."},
+    { "joke": "Über Tofu macht man keine Witze... das ist geschmacklos."},
+    { "joke": "Mein Elan-Empfang ist heute wirklich schlecht und mein Tatenvolumen ist auch schon aufgebraucht."}
 ]
