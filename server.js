@@ -4,6 +4,16 @@ const path = require('path');
 const app = express();
 const port = 3001;
 
+const rateLimit = require('express-rate-limit');
+const limiter = rateLimit({
+	windowMs: 1 * 60 * 1000, // 1 minutes
+	limit: 30, // Limit each IP to 30 requests per `window`
+	standardHeaders: 'draft-7', 
+	legacyHeaders: false, 
+})
+// Apply the rate limiting middleware to all requests.
+app.use(limiter)
+
 app.use(express.json());
 
 const jokesFilePath = path.join(__dirname, 'data', 'jokes.json');
